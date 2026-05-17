@@ -6,3 +6,144 @@ datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
 }
+
+model Role {
+  id        String   @id @default(cuid())
+  name      String   @unique @db.VarChar(50)
+  createdAt DateTime @default(now()) @map("created_at")
+  users     User[]
+
+  @@map("roles")
+}
+
+model User {
+  id       String   @id @default(cuid())
+  name     String   @db.VarChar(100)
+  email    String   @unique @db.VarChar(100)
+  password String   @db.VarChar(255)
+  isActive Boolean  @default(true)
+  roleId   String   @map("role_id")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  role               Role                @relation(fields: [roleId], references: [id])
+  purchases          Purchase[]
+  sales              Sale[]
+  inventoryMovements InventoryMovement[]
+
+  @@map("users")
+}
+
+model Supplier {
+  id        String   @id @default(cuid())
+  name      String?  @db.VarChar(100)
+  phone     String?  @db.VarChar(20)
+  address   String?  @db.VarChar(255)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  purchases Purchase[]
+
+  @@map("suppliers")
+}
+
+model Category {
+  id   String @id @default(cuid())
+  name String @db.VarChar(100)
+
+  products Product[]
+
+  @@map("categories")
+}
+
+model Product {
+  id            String   @id @default(cuid())
+  categoryId    String   @map("category_id")
+  name          String   @db.VarChar(100)
+  barcode       String?  @unique @db.VarChar(50)
+  purchasePrice Decimal  @map("purchase_price") @db.Decimal(10, 2)
+  salePrice     Decimal  @map("sale_price") @db.Decimal(10, 2)
+  quantity      Int      @default(0)
+  minQuantity   Int      @default(0) @map("min_quantity")
+  createdAt     DateTime @default(now()) @map("created_at")
+  updatedAt     DateTime @updatedAt @map("updated_at")
+
+  category           Category           @relation(fields: [categoryId], references: [id])
+  purchaseItems      PurchaseItem[]
+  saleItems          SaleItem[]
+  inventoryMovements InventoryMovement[]
+
+  @@map("products")
+}
+
+model Purchase {
+  id            String   @id @default(cuid())
+  supplierId    String?  @map("supplier_id")
+  createdBy     String   @map("created_by")
+  invoiceNumber String   @unique @map("invoice_number") @db.VarChar(50)
+  totalAmount   Decimal  @map("total_amount") @db.Decimal(10, 2)
+  purchaseDate  DateTime @default(now()) @map("purchase_date")
+
+  supplier      Supplier?      @relation(fields: [supplierId], references: [id])
+  user          User           @relation(fields: [createdBy], references: [id])
+  purchaseItems PurchaseItem[]
+
+  @@map("purchases")
+}
+
+model PurchaseItem {
+  id            String  @id @default(cuid())
+  purchaseId    String  @map("purchase_id")
+  productId     String  @map("product_id")
+  quantity      Int
+  purchasePrice Decimal @map("purchase_price") @db.Decimal(10, 2)
+  totalPrice    Decimal @map("total_price") @db.Decimal(10, 2)
+
+  purchase Purchase @relation(fields: [purchaseId], references: [id])
+  product  Product  @relation(fields: [productId], references: [id])
+
+  @@map("purchase_items")
+}
+
+model Sale {
+  id            String   @id @default(cuid())
+  createdBy     String   @map("created_by")
+  invoiceNumber String   @unique @map("invoice_number") @db.VarChar(50)
+  totalAmount   Decimal  @map("total_amount") @db.Decimal(10, 2)
+  paymentMethod String   @map("payment_method") @db.VarChar(30)
+  saleDate      DateTime @default(now()) @map("sale_date")
+
+  user      User       @relation(fields: [createdBy], references: [id])
+  saleItems SaleItem[]
+
+  @@map("sales")
+}
+
+model SaleItem {
+  id         String  @id @default(cuid())
+  saleId     String  @map("sale_id")
+  productId  String  @map("product_id")
+  quantity   Int
+  salePrice  Decimal @map("sale_price") @db.Decimal(10, 2)
+  totalPrice Decimal @map("total_price") @db.Decimal(10, 2)
+
+  sale    Sale    @relation(fields: [saleId], references: [id])
+  product Product @relation(fields: [productId], references: [id])
+
+  @@map("sale_items")
+}
+
+model InventoryMovement {
+  id            String   @id @default(cuid())
+  productId     String   @map("product_id")
+  createdBy     String   @map("created_by")
+  type          String   @db.VarChar(20)
+  quantity      Int
+  referenceId   String?  @map("reference_id")
+  referenceType String?  @map("reference_type") @db.VarChar(20)
+  createdAt     DateTime @default(now()) @map("created_at")
+
+  product Product @relation(fields: [productId], references: [id])
+  user    User    @relation(fields: [createdBy], references: [id])
+
+  @@map("inventory_movements")
+}

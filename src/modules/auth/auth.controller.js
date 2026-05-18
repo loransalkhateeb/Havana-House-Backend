@@ -12,4 +12,14 @@ const login = catchAsync(async (req, res) => {
   res.status(httpStatus.OK).json(result);
 });
 
-module.exports = { register, login };
+const refreshTokens = catchAsync(async (req, res) => {
+  const result = await authService.refreshTokens(req.body.refreshToken);
+  res.status(httpStatus.OK).json(result);
+});
+
+const logout = catchAsync(async (req, res) => {
+  await authService.logout(req.body.refreshToken);
+  res.status(httpStatus.NO_CONTENT).send();
+});
+
+module.exports = { register, login, refreshTokens, logout };

@@ -46,4 +46,10 @@ const updateProfile = {
     .min(1),
 };
 
-module.exports = { createUser, updateUser, getUser, deleteUser, updateProfile };
+const getUserSales = {
+  body: Joi.object().keys({
+    userId: Joi.string().required(),
+  }),
+};
+
+module.exports = { createUser, updateUser, getUser, deleteUser, updateProfile, getUserSales };

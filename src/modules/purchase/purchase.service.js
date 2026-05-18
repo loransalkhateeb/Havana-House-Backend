@@ -37,6 +37,7 @@ const createPurchase = async (userId, body) => {
         createdBy: userId,
         invoiceNumber: body.invoiceNumber,
         totalAmount,
+        ...(body.purchaseDate ? { purchaseDate: new Date(body.purchaseDate) } : {}),
         purchaseItems: {
           create: purchaseItems,
         },

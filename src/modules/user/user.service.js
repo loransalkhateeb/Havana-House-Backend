@@ -84,4 +84,75 @@ const deleteUser = async (id) => {
   await prisma.user.delete({ where: { id } });
 };
 
-module.exports = { createUser, getUsers, getUserById, updateUser, deleteUser };
+const getCashiers = async () => {
+  const users = await prisma.user.findMany({
+    where: { role: { name: "user" } },
+    include: { role: true },
+  });
+  return users.map(({ password, ...user }) => user);
+};
+
+const getUserSales = async (userId) => {
+  const user = await prisma.user.findUnique({
+    where: { id: userId },
+    include: { role: true },
+  });
+  if (!user) {
+    throw new ApiError(httpStatus.NOT_FOUND, "User not found");
+  }
+
+  const sales = await prisma.sale.findMany({
+    where: { createdBy: userId },
+    include: {
+      saleItems: {
+        include: {
+          product: {
+            include: { category: true },
+          },
+        },
+      },
+    },
+    orderBy: { saleDate: "desc" },
+  });
+
+  const totalSales = sales.length;
+  const totalRevenue = sales.reduce((sum, s) => sum + Number(s.totalAmount), 0);
+  const totalItemsSold = sales.reduce(
+    (sum, s) => sum + s.saleItems.reduce((s2, item) => s2 + item.quantity, 0),
+    0
+  );
+
+  const { password, ...userInfo } = user;
+
+  return {
+    user: userInfo,
+    summary: {
+      totalSales,
+      totalRevenue,
+      totalItemsSold,
+    },
+    sales: sales.map((sale) => ({
+      id: sale.id,
+      invoiceNumber: sale.invoiceNumber,
+      saleDate: sale.saleDate,
+      totalAmount: Number(sale.totalAmount),
+      paymentMethod: sale.paymentMethod,
+      itemsCount: sale.saleItems.length,
+      totalQuantity: sale.saleItems.reduce((sum, item) => sum + item.quantity, 0),
+      items: sale.saleItems.map((item) => ({
+        product: {
+          id: item.product.id,
+          name: item.product.name,
+          barcode: item.product.barcode,
+          category: item.product.category.name,
+          currentPrice: Number(item.product.salePrice),
+        },
+        quantity: item.quantity,
+        unitPrice: Number(item.salePrice),
+        totalPrice: Number(item.totalPrice),
+      })),
+    })),
+  };
+};
+
+module.exports = { createUser, getUsers, getUserById, updateUser, deleteUser, getCashiers, getUserSales };

@@ -5,6 +5,7 @@ const categoryRoute = require("./category.route");
 const productRoute = require("./product.route");
 const purchaseRoute = require("./purchase.route");
 const saleRoute = require("./sale.route");
+const inventoryRoute = require("./inventory.route");
 
 const router = express.Router();
 
@@ -15,6 +16,7 @@ const routes = [
   { path: "/products", route: productRoute },
   { path: "/purchases", route: purchaseRoute },
   { path: "/sales", route: saleRoute },
+  { path: "/inventory", route: inventoryRoute },
 ];
 
 routes.forEach((route) => {

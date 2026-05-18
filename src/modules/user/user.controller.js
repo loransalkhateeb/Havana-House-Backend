@@ -37,6 +37,16 @@ const updateProfile = catchAsync(async (req, res) => {
   res.status(httpStatus.OK).json(user);
 });
 
+const getCashiers = catchAsync(async (req, res) => {
+  const users = await userService.getCashiers();
+  res.status(httpStatus.OK).json(users);
+});
+
+const getUserSales = catchAsync(async (req, res) => {
+  const result = await userService.getUserSales(req.body.userId);
+  res.status(httpStatus.OK).json(result);
+});
+
 module.exports = {
   createUser,
   getUsers,
@@ -45,4 +55,6 @@ module.exports = {
   deleteUser,
   getProfile,
   updateProfile,
+  getCashiers,
+  getUserSales,
 };

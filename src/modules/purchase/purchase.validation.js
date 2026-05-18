@@ -4,6 +4,7 @@ const createPurchase = {
   body: Joi.object().keys({
     supplierId: Joi.string().allow(null, ""),
     invoiceNumber: Joi.string().required().max(50),
+    purchaseDate: Joi.date().iso(),
     items: Joi.array()
       .items(
         Joi.object().keys({

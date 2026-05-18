@@ -23,11 +23,26 @@ router.get(
 );
 
 router.get(
+  "/cashiers",
+  auth(),
+  authorization("admin"),
+  userController.getCashiers,
+);
+
+router.get(
   "/:id",
   auth(),
   authorization("admin"),
   validate(userValidation.getUser),
   userController.getUserById,
+);
+
+router.post(
+  "/sales",
+  auth(),
+  authorization("admin"),
+  validate(userValidation.getUserSales),
+  userController.getUserSales,
 );
 
 router.put(

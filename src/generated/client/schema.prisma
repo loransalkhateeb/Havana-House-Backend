@@ -18,12 +18,12 @@ model Role {
 }
 
 model User {
-  id       String   @id @default(cuid())
-  name     String
-  email    String   @unique
-  password String
-  isActive Boolean  @default(true)
-  roleId   String   @map("role_id")
+  id        String   @id @default(cuid())
+  name      String
+  email     String   @unique
+  password  String
+  isActive  Boolean  @default(true)
+  roleId    String   @map("role_id")
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 
@@ -69,7 +69,7 @@ model Product {
   createdAt     DateTime @default(now()) @map("created_at")
   updatedAt     DateTime @updatedAt @map("updated_at")
 
-  category           Category           @relation(fields: [categoryId], references: [id])
+  category           Category            @relation(fields: [categoryId], references: [id])
   purchaseItems      PurchaseItem[]
   saleItems          SaleItem[]
   inventoryMovements InventoryMovement[]

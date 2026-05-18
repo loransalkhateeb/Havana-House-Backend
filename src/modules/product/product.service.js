@@ -38,6 +38,7 @@ const createProduct = async (body) => {
 
 const getProducts = async () => {
   return prisma.product.findMany({
+    where: { deletedAt: null },
     include: { category: true },
   });
 };
@@ -47,7 +48,7 @@ const getProductById = async (id) => {
     where: { id },
     include: { category: true },
   });
-  if (!product) {
+  if (!product || product.deletedAt) {
     throw new ApiError(httpStatus.NOT_FOUND, "Product not found");
   }
   return product;
@@ -55,7 +56,7 @@ const getProductById = async (id) => {
 
 const updateProduct = async (id, body) => {
   const product = await prisma.product.findUnique({ where: { id } });
-  if (!product) {
+  if (!product || product.deletedAt) {
     throw new ApiError(httpStatus.NOT_FOUND, "Product not found");
   }
 
@@ -82,10 +83,13 @@ const updateProduct = async (id, body) => {
 
 const deleteProduct = async (id) => {
   const product = await prisma.product.findUnique({ where: { id } });
-  if (!product) {
+  if (!product || product.deletedAt) {
     throw new ApiError(httpStatus.NOT_FOUND, "Product not found");
   }
-  await prisma.product.delete({ where: { id } });
+  await prisma.product.update({
+    where: { id },
+    data: { deletedAt: new Date() },
+  });
 };
 
 module.exports = { createProduct, getProducts, getProductById, updateProduct, deleteProduct };

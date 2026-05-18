@@ -804,10 +804,6 @@ export namespace Prisma {
             args: Prisma.RoleCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
-          createManyAndReturn: {
-            args: Prisma.RoleCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$RolePayload>[]
-          }
           delete: {
             args: Prisma.RoleDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$RolePayload>
@@ -873,10 +869,6 @@ export namespace Prisma {
           createMany: {
             args: Prisma.UserCreateManyArgs<ExtArgs>
             result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.UserCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$UserPayload>[]
           }
           delete: {
             args: Prisma.UserDeleteArgs<ExtArgs>
@@ -944,10 +936,6 @@ export namespace Prisma {
             args: Prisma.SupplierCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
-          createManyAndReturn: {
-            args: Prisma.SupplierCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SupplierPayload>[]
-          }
           delete: {
             args: Prisma.SupplierDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$SupplierPayload>
@@ -1013,10 +1001,6 @@ export namespace Prisma {
           createMany: {
             args: Prisma.CategoryCreateManyArgs<ExtArgs>
             result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.CategoryCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CategoryPayload>[]
           }
           delete: {
             args: Prisma.CategoryDeleteArgs<ExtArgs>
@@ -1084,10 +1068,6 @@ export namespace Prisma {
             args: Prisma.ProductCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
-          createManyAndReturn: {
-            args: Prisma.ProductCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$ProductPayload>[]
-          }
           delete: {
             args: Prisma.ProductDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$ProductPayload>
@@ -1153,10 +1133,6 @@ export namespace Prisma {
           createMany: {
             args: Prisma.PurchaseCreateManyArgs<ExtArgs>
             result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.PurchaseCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PurchasePayload>[]
           }
           delete: {
             args: Prisma.PurchaseDeleteArgs<ExtArgs>
@@ -1224,10 +1200,6 @@ export namespace Prisma {
             args: Prisma.PurchaseItemCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
-          createManyAndReturn: {
-            args: Prisma.PurchaseItemCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PurchaseItemPayload>[]
-          }
           delete: {
             args: Prisma.PurchaseItemDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$PurchaseItemPayload>
@@ -1293,10 +1265,6 @@ export namespace Prisma {
           createMany: {
             args: Prisma.SaleCreateManyArgs<ExtArgs>
             result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.SaleCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SalePayload>[]
           }
           delete: {
             args: Prisma.SaleDeleteArgs<ExtArgs>
@@ -1364,10 +1332,6 @@ export namespace Prisma {
             args: Prisma.SaleItemCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
-          createManyAndReturn: {
-            args: Prisma.SaleItemCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$SaleItemPayload>[]
-          }
           delete: {
             args: Prisma.SaleItemDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$SaleItemPayload>
@@ -1434,10 +1398,6 @@ export namespace Prisma {
             args: Prisma.RefreshTokenCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
-          createManyAndReturn: {
-            args: Prisma.RefreshTokenCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$RefreshTokenPayload>[]
-          }
           delete: {
             args: Prisma.RefreshTokenDeleteArgs<ExtArgs>
             result: $Utils.PayloadToResult<Prisma.$RefreshTokenPayload>
@@ -1503,10 +1463,6 @@ export namespace Prisma {
           createMany: {
             args: Prisma.InventoryMovementCreateManyArgs<ExtArgs>
             result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.InventoryMovementCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$InventoryMovementPayload>[]
           }
           delete: {
             args: Prisma.InventoryMovementDeleteArgs<ExtArgs>
@@ -2116,11 +2072,6 @@ export namespace Prisma {
     _count?: boolean | RoleCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["role"]>
 
-  export type RoleSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    name?: boolean
-    createdAt?: boolean
-  }, ExtArgs["result"]["role"]>
 
   export type RoleSelectScalar = {
     id?: boolean
@@ -2132,7 +2083,6 @@ export namespace Prisma {
     users?: boolean | Role$usersArgs<ExtArgs>
     _count?: boolean | RoleCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type RoleIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $RolePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Role"
@@ -2259,30 +2209,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends RoleCreateManyArgs>(args?: SelectSubset<T, RoleCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Roles and returns the data saved in the database.
-     * @param {RoleCreateManyAndReturnArgs} args - Arguments to create many Roles.
-     * @example
-     * // Create many Roles
-     * const role = await prisma.role.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Roles and only return the `id`
-     * const roleWithIdOnly = await prisma.role.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends RoleCreateManyAndReturnArgs>(args?: SelectSubset<T, RoleCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RolePayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a Role.
@@ -2745,20 +2671,7 @@ export namespace Prisma {
      * The data used to create many Roles.
      */
     data: RoleCreateManyInput | RoleCreateManyInput[]
-  }
-
-  /**
-   * Role createManyAndReturn
-   */
-  export type RoleCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Role
-     */
-    select?: RoleSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many Roles.
-     */
-    data: RoleCreateManyInput | RoleCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -3082,17 +2995,6 @@ export namespace Prisma {
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
-  export type UserSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    name?: boolean
-    email?: boolean
-    password?: boolean
-    isActive?: boolean
-    roleId?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    role?: boolean | RoleDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["user"]>
 
   export type UserSelectScalar = {
     id?: boolean
@@ -3112,9 +3014,6 @@ export namespace Prisma {
     sales?: boolean | User$salesArgs<ExtArgs>
     inventoryMovements?: boolean | User$inventoryMovementsArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
-  }
-  export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    role?: boolean | RoleDefaultArgs<ExtArgs>
   }
 
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3251,30 +3150,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends UserCreateManyArgs>(args?: SelectSubset<T, UserCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Users and returns the data saved in the database.
-     * @param {UserCreateManyAndReturnArgs} args - Arguments to create many Users.
-     * @example
-     * // Create many Users
-     * const user = await prisma.user.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Users and only return the `id`
-     * const userWithIdOnly = await prisma.user.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends UserCreateManyAndReturnArgs>(args?: SelectSubset<T, UserCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a User.
@@ -3746,24 +3621,7 @@ export namespace Prisma {
      * The data used to create many Users.
      */
     data: UserCreateManyInput | UserCreateManyInput[]
-  }
-
-  /**
-   * User createManyAndReturn
-   */
-  export type UserCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the User
-     */
-    select?: UserSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many Users.
-     */
-    data: UserCreateManyInput | UserCreateManyInput[]
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: UserIncludeCreateManyAndReturn<ExtArgs> | null
+    skipDuplicates?: boolean
   }
 
   /**
@@ -4119,13 +3977,6 @@ export namespace Prisma {
     _count?: boolean | SupplierCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["supplier"]>
 
-  export type SupplierSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    name?: boolean
-    phone?: boolean
-    address?: boolean
-    createdAt?: boolean
-  }, ExtArgs["result"]["supplier"]>
 
   export type SupplierSelectScalar = {
     id?: boolean
@@ -4139,7 +3990,6 @@ export namespace Prisma {
     purchases?: boolean | Supplier$purchasesArgs<ExtArgs>
     _count?: boolean | SupplierCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type SupplierIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $SupplierPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Supplier"
@@ -4268,30 +4118,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends SupplierCreateManyArgs>(args?: SelectSubset<T, SupplierCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Suppliers and returns the data saved in the database.
-     * @param {SupplierCreateManyAndReturnArgs} args - Arguments to create many Suppliers.
-     * @example
-     * // Create many Suppliers
-     * const supplier = await prisma.supplier.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Suppliers and only return the `id`
-     * const supplierWithIdOnly = await prisma.supplier.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends SupplierCreateManyAndReturnArgs>(args?: SelectSubset<T, SupplierCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SupplierPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a Supplier.
@@ -4756,20 +4582,7 @@ export namespace Prisma {
      * The data used to create many Suppliers.
      */
     data: SupplierCreateManyInput | SupplierCreateManyInput[]
-  }
-
-  /**
-   * Supplier createManyAndReturn
-   */
-  export type SupplierCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Supplier
-     */
-    select?: SupplierSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many Suppliers.
-     */
-    data: SupplierCreateManyInput | SupplierCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -5041,10 +4854,6 @@ export namespace Prisma {
     _count?: boolean | CategoryCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["category"]>
 
-  export type CategorySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    name?: boolean
-  }, ExtArgs["result"]["category"]>
 
   export type CategorySelectScalar = {
     id?: boolean
@@ -5055,7 +4864,6 @@ export namespace Prisma {
     products?: boolean | Category$productsArgs<ExtArgs>
     _count?: boolean | CategoryCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type CategoryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
   export type $CategoryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Category"
@@ -5181,30 +4989,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends CategoryCreateManyArgs>(args?: SelectSubset<T, CategoryCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Categories and returns the data saved in the database.
-     * @param {CategoryCreateManyAndReturnArgs} args - Arguments to create many Categories.
-     * @example
-     * // Create many Categories
-     * const category = await prisma.category.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Categories and only return the `id`
-     * const categoryWithIdOnly = await prisma.category.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends CategoryCreateManyAndReturnArgs>(args?: SelectSubset<T, CategoryCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a Category.
@@ -5666,20 +5450,7 @@ export namespace Prisma {
      * The data used to create many Categories.
      */
     data: CategoryCreateManyInput | CategoryCreateManyInput[]
-  }
-
-  /**
-   * Category createManyAndReturn
-   */
-  export type CategoryCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Category
-     */
-    select?: CategorySelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many Categories.
-     */
-    data: CategoryCreateManyInput | CategoryCreateManyInput[]
+    skipDuplicates?: boolean
   }
 
   /**
@@ -5842,6 +5613,7 @@ export namespace Prisma {
     salePrice: Decimal | null
     quantity: number | null
     minQuantity: number | null
+    deletedAt: Date | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -5855,6 +5627,7 @@ export namespace Prisma {
     salePrice: Decimal | null
     quantity: number | null
     minQuantity: number | null
+    deletedAt: Date | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -5868,6 +5641,7 @@ export namespace Prisma {
     salePrice: number
     quantity: number
     minQuantity: number
+    deletedAt: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -5897,6 +5671,7 @@ export namespace Prisma {
     salePrice?: true
     quantity?: true
     minQuantity?: true
+    deletedAt?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -5910,6 +5685,7 @@ export namespace Prisma {
     salePrice?: true
     quantity?: true
     minQuantity?: true
+    deletedAt?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -5923,6 +5699,7 @@ export namespace Prisma {
     salePrice?: true
     quantity?: true
     minQuantity?: true
+    deletedAt?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -6023,6 +5800,7 @@ export namespace Prisma {
     salePrice: Decimal
     quantity: number
     minQuantity: number
+    deletedAt: Date | null
     createdAt: Date
     updatedAt: Date
     _count: ProductCountAggregateOutputType | null
@@ -6055,6 +5833,7 @@ export namespace Prisma {
     salePrice?: boolean
     quantity?: boolean
     minQuantity?: boolean
+    deletedAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     category?: boolean | CategoryDefaultArgs<ExtArgs>
@@ -6064,19 +5843,6 @@ export namespace Prisma {
     _count?: boolean | ProductCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["product"]>
 
-  export type ProductSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    categoryId?: boolean
-    name?: boolean
-    barcode?: boolean
-    purchasePrice?: boolean
-    salePrice?: boolean
-    quantity?: boolean
-    minQuantity?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-    category?: boolean | CategoryDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["product"]>
 
   export type ProductSelectScalar = {
     id?: boolean
@@ -6087,6 +5853,7 @@ export namespace Prisma {
     salePrice?: boolean
     quantity?: boolean
     minQuantity?: boolean
+    deletedAt?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
@@ -6097,9 +5864,6 @@ export namespace Prisma {
     saleItems?: boolean | Product$saleItemsArgs<ExtArgs>
     inventoryMovements?: boolean | Product$inventoryMovementsArgs<ExtArgs>
     _count?: boolean | ProductCountOutputTypeDefaultArgs<ExtArgs>
-  }
-  export type ProductIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    category?: boolean | CategoryDefaultArgs<ExtArgs>
   }
 
   export type $ProductPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -6119,6 +5883,7 @@ export namespace Prisma {
       salePrice: Prisma.Decimal
       quantity: number
       minQuantity: number
+      deletedAt: Date | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["product"]>
@@ -6237,30 +6002,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends ProductCreateManyArgs>(args?: SelectSubset<T, ProductCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Products and returns the data saved in the database.
-     * @param {ProductCreateManyAndReturnArgs} args - Arguments to create many Products.
-     * @example
-     * // Create many Products
-     * const product = await prisma.product.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Products and only return the `id`
-     * const productWithIdOnly = await prisma.product.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends ProductCreateManyAndReturnArgs>(args?: SelectSubset<T, ProductCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ProductPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a Product.
@@ -6526,6 +6267,7 @@ export namespace Prisma {
     readonly salePrice: FieldRef<"Product", 'Decimal'>
     readonly quantity: FieldRef<"Product", 'Int'>
     readonly minQuantity: FieldRef<"Product", 'Int'>
+    readonly deletedAt: FieldRef<"Product", 'DateTime'>
     readonly createdAt: FieldRef<"Product", 'DateTime'>
     readonly updatedAt: FieldRef<"Product", 'DateTime'>
   }
@@ -6733,24 +6475,7 @@ export namespace Prisma {
      * The data used to create many Products.
      */
     data: ProductCreateManyInput | ProductCreateManyInput[]
-  }
-
-  /**
-   * Product createManyAndReturn
-   */
-  export type ProductCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Product
-     */
-    select?: ProductSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many Products.
-     */
-    data: ProductCreateManyInput | ProductCreateManyInput[]
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ProductIncludeCreateManyAndReturn<ExtArgs> | null
+    skipDuplicates?: boolean
   }
 
   /**
@@ -7130,16 +6855,6 @@ export namespace Prisma {
     _count?: boolean | PurchaseCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["purchase"]>
 
-  export type PurchaseSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    supplierId?: boolean
-    createdBy?: boolean
-    invoiceNumber?: boolean
-    totalAmount?: boolean
-    purchaseDate?: boolean
-    supplier?: boolean | Purchase$supplierArgs<ExtArgs>
-    user?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["purchase"]>
 
   export type PurchaseSelectScalar = {
     id?: boolean
@@ -7155,10 +6870,6 @@ export namespace Prisma {
     user?: boolean | UserDefaultArgs<ExtArgs>
     purchaseItems?: boolean | Purchase$purchaseItemsArgs<ExtArgs>
     _count?: boolean | PurchaseCountOutputTypeDefaultArgs<ExtArgs>
-  }
-  export type PurchaseIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    supplier?: boolean | Purchase$supplierArgs<ExtArgs>
-    user?: boolean | UserDefaultArgs<ExtArgs>
   }
 
   export type $PurchasePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -7291,30 +7002,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends PurchaseCreateManyArgs>(args?: SelectSubset<T, PurchaseCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Purchases and returns the data saved in the database.
-     * @param {PurchaseCreateManyAndReturnArgs} args - Arguments to create many Purchases.
-     * @example
-     * // Create many Purchases
-     * const purchase = await prisma.purchase.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Purchases and only return the `id`
-     * const purchaseWithIdOnly = await prisma.purchase.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends PurchaseCreateManyAndReturnArgs>(args?: SelectSubset<T, PurchaseCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PurchasePayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a Purchase.
@@ -7782,24 +7469,7 @@ export namespace Prisma {
      * The data used to create many Purchases.
      */
     data: PurchaseCreateManyInput | PurchaseCreateManyInput[]
-  }
-
-  /**
-   * Purchase createManyAndReturn
-   */
-  export type PurchaseCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Purchase
-     */
-    select?: PurchaseSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many Purchases.
-     */
-    data: PurchaseCreateManyInput | PurchaseCreateManyInput[]
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PurchaseIncludeCreateManyAndReturn<ExtArgs> | null
+    skipDuplicates?: boolean
   }
 
   /**
@@ -8160,16 +7830,6 @@ export namespace Prisma {
     product?: boolean | ProductDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["purchaseItem"]>
 
-  export type PurchaseItemSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    purchaseId?: boolean
-    productId?: boolean
-    quantity?: boolean
-    purchasePrice?: boolean
-    totalPrice?: boolean
-    purchase?: boolean | PurchaseDefaultArgs<ExtArgs>
-    product?: boolean | ProductDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["purchaseItem"]>
 
   export type PurchaseItemSelectScalar = {
     id?: boolean
@@ -8181,10 +7841,6 @@ export namespace Prisma {
   }
 
   export type PurchaseItemInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    purchase?: boolean | PurchaseDefaultArgs<ExtArgs>
-    product?: boolean | ProductDefaultArgs<ExtArgs>
-  }
-  export type PurchaseItemIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     purchase?: boolean | PurchaseDefaultArgs<ExtArgs>
     product?: boolean | ProductDefaultArgs<ExtArgs>
   }
@@ -8318,30 +7974,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends PurchaseItemCreateManyArgs>(args?: SelectSubset<T, PurchaseItemCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many PurchaseItems and returns the data saved in the database.
-     * @param {PurchaseItemCreateManyAndReturnArgs} args - Arguments to create many PurchaseItems.
-     * @example
-     * // Create many PurchaseItems
-     * const purchaseItem = await prisma.purchaseItem.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many PurchaseItems and only return the `id`
-     * const purchaseItemWithIdOnly = await prisma.purchaseItem.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends PurchaseItemCreateManyAndReturnArgs>(args?: SelectSubset<T, PurchaseItemCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PurchaseItemPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a PurchaseItem.
@@ -8808,24 +8440,7 @@ export namespace Prisma {
      * The data used to create many PurchaseItems.
      */
     data: PurchaseItemCreateManyInput | PurchaseItemCreateManyInput[]
-  }
-
-  /**
-   * PurchaseItem createManyAndReturn
-   */
-  export type PurchaseItemCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the PurchaseItem
-     */
-    select?: PurchaseItemSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many PurchaseItems.
-     */
-    data: PurchaseItemCreateManyInput | PurchaseItemCreateManyInput[]
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PurchaseItemIncludeCreateManyAndReturn<ExtArgs> | null
+    skipDuplicates?: boolean
   }
 
   /**
@@ -9144,15 +8759,6 @@ export namespace Prisma {
     _count?: boolean | SaleCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["sale"]>
 
-  export type SaleSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    createdBy?: boolean
-    invoiceNumber?: boolean
-    totalAmount?: boolean
-    paymentMethod?: boolean
-    saleDate?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["sale"]>
 
   export type SaleSelectScalar = {
     id?: boolean
@@ -9167,9 +8773,6 @@ export namespace Prisma {
     user?: boolean | UserDefaultArgs<ExtArgs>
     saleItems?: boolean | Sale$saleItemsArgs<ExtArgs>
     _count?: boolean | SaleCountOutputTypeDefaultArgs<ExtArgs>
-  }
-  export type SaleIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
   }
 
   export type $SalePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -9301,30 +8904,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends SaleCreateManyArgs>(args?: SelectSubset<T, SaleCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Sales and returns the data saved in the database.
-     * @param {SaleCreateManyAndReturnArgs} args - Arguments to create many Sales.
-     * @example
-     * // Create many Sales
-     * const sale = await prisma.sale.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Sales and only return the `id`
-     * const saleWithIdOnly = await prisma.sale.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends SaleCreateManyAndReturnArgs>(args?: SelectSubset<T, SaleCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SalePayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a Sale.
@@ -9791,24 +9370,7 @@ export namespace Prisma {
      * The data used to create many Sales.
      */
     data: SaleCreateManyInput | SaleCreateManyInput[]
-  }
-
-  /**
-   * Sale createManyAndReturn
-   */
-  export type SaleCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Sale
-     */
-    select?: SaleSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many Sales.
-     */
-    data: SaleCreateManyInput | SaleCreateManyInput[]
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: SaleIncludeCreateManyAndReturn<ExtArgs> | null
+    skipDuplicates?: boolean
   }
 
   /**
@@ -10154,16 +9716,6 @@ export namespace Prisma {
     product?: boolean | ProductDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["saleItem"]>
 
-  export type SaleItemSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    saleId?: boolean
-    productId?: boolean
-    quantity?: boolean
-    salePrice?: boolean
-    totalPrice?: boolean
-    sale?: boolean | SaleDefaultArgs<ExtArgs>
-    product?: boolean | ProductDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["saleItem"]>
 
   export type SaleItemSelectScalar = {
     id?: boolean
@@ -10175,10 +9727,6 @@ export namespace Prisma {
   }
 
   export type SaleItemInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    sale?: boolean | SaleDefaultArgs<ExtArgs>
-    product?: boolean | ProductDefaultArgs<ExtArgs>
-  }
-  export type SaleItemIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     sale?: boolean | SaleDefaultArgs<ExtArgs>
     product?: boolean | ProductDefaultArgs<ExtArgs>
   }
@@ -10312,30 +9860,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends SaleItemCreateManyArgs>(args?: SelectSubset<T, SaleItemCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many SaleItems and returns the data saved in the database.
-     * @param {SaleItemCreateManyAndReturnArgs} args - Arguments to create many SaleItems.
-     * @example
-     * // Create many SaleItems
-     * const saleItem = await prisma.saleItem.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many SaleItems and only return the `id`
-     * const saleItemWithIdOnly = await prisma.saleItem.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends SaleItemCreateManyAndReturnArgs>(args?: SelectSubset<T, SaleItemCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SaleItemPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a SaleItem.
@@ -10802,24 +10326,7 @@ export namespace Prisma {
      * The data used to create many SaleItems.
      */
     data: SaleItemCreateManyInput | SaleItemCreateManyInput[]
-  }
-
-  /**
-   * SaleItem createManyAndReturn
-   */
-  export type SaleItemCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the SaleItem
-     */
-    select?: SaleItemSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many SaleItems.
-     */
-    data: SaleItemCreateManyInput | SaleItemCreateManyInput[]
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: SaleItemIncludeCreateManyAndReturn<ExtArgs> | null
+    skipDuplicates?: boolean
   }
 
   /**
@@ -11094,14 +10601,6 @@ export namespace Prisma {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["refreshToken"]>
 
-  export type RefreshTokenSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    token?: boolean
-    userId?: boolean
-    expiresAt?: boolean
-    createdAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["refreshToken"]>
 
   export type RefreshTokenSelectScalar = {
     id?: boolean
@@ -11112,9 +10611,6 @@ export namespace Prisma {
   }
 
   export type RefreshTokenInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
-  }
-  export type RefreshTokenIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
 
@@ -11245,30 +10741,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends RefreshTokenCreateManyArgs>(args?: SelectSubset<T, RefreshTokenCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many RefreshTokens and returns the data saved in the database.
-     * @param {RefreshTokenCreateManyAndReturnArgs} args - Arguments to create many RefreshTokens.
-     * @example
-     * // Create many RefreshTokens
-     * const refreshToken = await prisma.refreshToken.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many RefreshTokens and only return the `id`
-     * const refreshTokenWithIdOnly = await prisma.refreshToken.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends RefreshTokenCreateManyAndReturnArgs>(args?: SelectSubset<T, RefreshTokenCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RefreshTokenPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a RefreshToken.
@@ -11733,24 +11205,7 @@ export namespace Prisma {
      * The data used to create many RefreshTokens.
      */
     data: RefreshTokenCreateManyInput | RefreshTokenCreateManyInput[]
-  }
-
-  /**
-   * RefreshToken createManyAndReturn
-   */
-  export type RefreshTokenCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the RefreshToken
-     */
-    select?: RefreshTokenSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many RefreshTokens.
-     */
-    data: RefreshTokenCreateManyInput | RefreshTokenCreateManyInput[]
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: RefreshTokenIncludeCreateManyAndReturn<ExtArgs> | null
+    skipDuplicates?: boolean
   }
 
   /**
@@ -12084,18 +11539,6 @@ export namespace Prisma {
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["inventoryMovement"]>
 
-  export type InventoryMovementSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    productId?: boolean
-    createdBy?: boolean
-    type?: boolean
-    quantity?: boolean
-    referenceId?: boolean
-    referenceType?: boolean
-    createdAt?: boolean
-    product?: boolean | ProductDefaultArgs<ExtArgs>
-    user?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["inventoryMovement"]>
 
   export type InventoryMovementSelectScalar = {
     id?: boolean
@@ -12109,10 +11552,6 @@ export namespace Prisma {
   }
 
   export type InventoryMovementInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    product?: boolean | ProductDefaultArgs<ExtArgs>
-    user?: boolean | UserDefaultArgs<ExtArgs>
-  }
-  export type InventoryMovementIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     product?: boolean | ProductDefaultArgs<ExtArgs>
     user?: boolean | UserDefaultArgs<ExtArgs>
   }
@@ -12248,30 +11687,6 @@ export namespace Prisma {
      *     
      */
     createMany<T extends InventoryMovementCreateManyArgs>(args?: SelectSubset<T, InventoryMovementCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many InventoryMovements and returns the data saved in the database.
-     * @param {InventoryMovementCreateManyAndReturnArgs} args - Arguments to create many InventoryMovements.
-     * @example
-     * // Create many InventoryMovements
-     * const inventoryMovement = await prisma.inventoryMovement.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many InventoryMovements and only return the `id`
-     * const inventoryMovementWithIdOnly = await prisma.inventoryMovement.createManyAndReturn({ 
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends InventoryMovementCreateManyAndReturnArgs>(args?: SelectSubset<T, InventoryMovementCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InventoryMovementPayload<ExtArgs>, T, "createManyAndReturn">>
 
     /**
      * Delete a InventoryMovement.
@@ -12740,24 +12155,7 @@ export namespace Prisma {
      * The data used to create many InventoryMovements.
      */
     data: InventoryMovementCreateManyInput | InventoryMovementCreateManyInput[]
-  }
-
-  /**
-   * InventoryMovement createManyAndReturn
-   */
-  export type InventoryMovementCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the InventoryMovement
-     */
-    select?: InventoryMovementSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * The data used to create many InventoryMovements.
-     */
-    data: InventoryMovementCreateManyInput | InventoryMovementCreateManyInput[]
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: InventoryMovementIncludeCreateManyAndReturn<ExtArgs> | null
+    skipDuplicates?: boolean
   }
 
   /**
@@ -12870,6 +12268,9 @@ export namespace Prisma {
    */
 
   export const TransactionIsolationLevel: {
+    ReadUncommitted: 'ReadUncommitted',
+    ReadCommitted: 'ReadCommitted',
+    RepeatableRead: 'RepeatableRead',
     Serializable: 'Serializable'
   };
 
@@ -12927,6 +12328,7 @@ export namespace Prisma {
     salePrice: 'salePrice',
     quantity: 'quantity',
     minQuantity: 'minQuantity',
+    deletedAt: 'deletedAt',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -13307,6 +12709,7 @@ export namespace Prisma {
     salePrice?: DecimalFilter<"Product"> | Decimal | DecimalJsLike | number | string
     quantity?: IntFilter<"Product"> | number
     minQuantity?: IntFilter<"Product"> | number
+    deletedAt?: DateTimeNullableFilter<"Product"> | Date | string | null
     createdAt?: DateTimeFilter<"Product"> | Date | string
     updatedAt?: DateTimeFilter<"Product"> | Date | string
     category?: XOR<CategoryRelationFilter, CategoryWhereInput>
@@ -13324,6 +12727,7 @@ export namespace Prisma {
     salePrice?: SortOrder
     quantity?: SortOrder
     minQuantity?: SortOrder
+    deletedAt?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     category?: CategoryOrderByWithRelationInput
@@ -13344,6 +12748,7 @@ export namespace Prisma {
     salePrice?: DecimalFilter<"Product"> | Decimal | DecimalJsLike | number | string
     quantity?: IntFilter<"Product"> | number
     minQuantity?: IntFilter<"Product"> | number
+    deletedAt?: DateTimeNullableFilter<"Product"> | Date | string | null
     createdAt?: DateTimeFilter<"Product"> | Date | string
     updatedAt?: DateTimeFilter<"Product"> | Date | string
     category?: XOR<CategoryRelationFilter, CategoryWhereInput>
@@ -13361,6 +12766,7 @@ export namespace Prisma {
     salePrice?: SortOrder
     quantity?: SortOrder
     minQuantity?: SortOrder
+    deletedAt?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: ProductCountOrderByAggregateInput
@@ -13382,6 +12788,7 @@ export namespace Prisma {
     salePrice?: DecimalWithAggregatesFilter<"Product"> | Decimal | DecimalJsLike | number | string
     quantity?: IntWithAggregatesFilter<"Product"> | number
     minQuantity?: IntWithAggregatesFilter<"Product"> | number
+    deletedAt?: DateTimeNullableWithAggregatesFilter<"Product"> | Date | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Product"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Product"> | Date | string
   }
@@ -14024,6 +13431,7 @@ export namespace Prisma {
     salePrice: Decimal | DecimalJsLike | number | string
     quantity?: number
     minQuantity?: number
+    deletedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     category: CategoryCreateNestedOneWithoutProductsInput
@@ -14041,6 +13449,7 @@ export namespace Prisma {
     salePrice: Decimal | DecimalJsLike | number | string
     quantity?: number
     minQuantity?: number
+    deletedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     purchaseItems?: PurchaseItemUncheckedCreateNestedManyWithoutProductInput
@@ -14056,6 +13465,7 @@ export namespace Prisma {
     salePrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     quantity?: IntFieldUpdateOperationsInput | number
     minQuantity?: IntFieldUpdateOperationsInput | number
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     category?: CategoryUpdateOneRequiredWithoutProductsNestedInput
@@ -14073,6 +13483,7 @@ export namespace Prisma {
     salePrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     quantity?: IntFieldUpdateOperationsInput | number
     minQuantity?: IntFieldUpdateOperationsInput | number
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     purchaseItems?: PurchaseItemUncheckedUpdateManyWithoutProductNestedInput
@@ -14089,6 +13500,7 @@ export namespace Prisma {
     salePrice: Decimal | DecimalJsLike | number | string
     quantity?: number
     minQuantity?: number
+    deletedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -14101,6 +13513,7 @@ export namespace Prisma {
     salePrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     quantity?: IntFieldUpdateOperationsInput | number
     minQuantity?: IntFieldUpdateOperationsInput | number
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -14114,6 +13527,7 @@ export namespace Prisma {
     salePrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     quantity?: IntFieldUpdateOperationsInput | number
     minQuantity?: IntFieldUpdateOperationsInput | number
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -14783,6 +14197,17 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
+  export type DateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type CategoryRelationFilter = {
     is?: CategoryWhereInput
     isNot?: CategoryWhereInput
@@ -14817,6 +14242,7 @@ export namespace Prisma {
     salePrice?: SortOrder
     quantity?: SortOrder
     minQuantity?: SortOrder
+    deletedAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -14837,6 +14263,7 @@ export namespace Prisma {
     salePrice?: SortOrder
     quantity?: SortOrder
     minQuantity?: SortOrder
+    deletedAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -14850,6 +14277,7 @@ export namespace Prisma {
     salePrice?: SortOrder
     quantity?: SortOrder
     minQuantity?: SortOrder
+    deletedAt?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -14891,6 +14319,20 @@ export namespace Prisma {
     _sum?: NestedIntFilter<$PrismaModel>
     _min?: NestedIntFilter<$PrismaModel>
     _max?: NestedIntFilter<$PrismaModel>
+  }
+
+  export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
   }
 
   export type SupplierNullableRelationFilter = {
@@ -15519,6 +14961,10 @@ export namespace Prisma {
     divide?: number
   }
 
+  export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null
+  }
+
   export type CategoryUpdateOneRequiredWithoutProductsNestedInput = {
     create?: XOR<CategoryCreateWithoutProductsInput, CategoryUncheckedCreateWithoutProductsInput>
     connectOrCreate?: CategoryCreateOrConnectWithoutProductsInput
@@ -15970,6 +15416,17 @@ export namespace Prisma {
     not?: NestedDecimalFilter<$PrismaModel> | Decimal | DecimalJsLike | number | string
   }
 
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
   export type NestedDecimalWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Decimal | DecimalJsLike | number | string | DecimalFieldRefInput<$PrismaModel>
     in?: Decimal[] | DecimalJsLike[] | number[] | string[]
@@ -16013,6 +15470,20 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
+  export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | null
+    notIn?: Date[] | string[] | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableWithAggregatesFilter<$PrismaModel> | Date | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedDateTimeNullableFilter<$PrismaModel>
+    _max?: NestedDateTimeNullableFilter<$PrismaModel>
+  }
+
   export type UserCreateWithoutRoleInput = {
     id?: string
     name: string
@@ -16048,6 +15519,7 @@ export namespace Prisma {
 
   export type UserCreateManyRoleInputEnvelope = {
     data: UserCreateManyRoleInput | UserCreateManyRoleInput[]
+    skipDuplicates?: boolean
   }
 
   export type UserUpsertWithWhereUniqueWithoutRoleInput = {
@@ -16118,6 +15590,7 @@ export namespace Prisma {
 
   export type RefreshTokenCreateManyUserInputEnvelope = {
     data: RefreshTokenCreateManyUserInput | RefreshTokenCreateManyUserInput[]
+    skipDuplicates?: boolean
   }
 
   export type PurchaseCreateWithoutUserInput = {
@@ -16145,6 +15618,7 @@ export namespace Prisma {
 
   export type PurchaseCreateManyUserInputEnvelope = {
     data: PurchaseCreateManyUserInput | PurchaseCreateManyUserInput[]
+    skipDuplicates?: boolean
   }
 
   export type SaleCreateWithoutUserInput = {
@@ -16172,6 +15646,7 @@ export namespace Prisma {
 
   export type SaleCreateManyUserInputEnvelope = {
     data: SaleCreateManyUserInput | SaleCreateManyUserInput[]
+    skipDuplicates?: boolean
   }
 
   export type InventoryMovementCreateWithoutUserInput = {
@@ -16201,6 +15676,7 @@ export namespace Prisma {
 
   export type InventoryMovementCreateManyUserInputEnvelope = {
     data: InventoryMovementCreateManyUserInput | InventoryMovementCreateManyUserInput[]
+    skipDuplicates?: boolean
   }
 
   export type RoleUpsertWithoutUsersInput = {
@@ -16364,6 +15840,7 @@ export namespace Prisma {
 
   export type PurchaseCreateManySupplierInputEnvelope = {
     data: PurchaseCreateManySupplierInput | PurchaseCreateManySupplierInput[]
+    skipDuplicates?: boolean
   }
 
   export type PurchaseUpsertWithWhereUniqueWithoutSupplierInput = {
@@ -16390,6 +15867,7 @@ export namespace Prisma {
     salePrice: Decimal | DecimalJsLike | number | string
     quantity?: number
     minQuantity?: number
+    deletedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     purchaseItems?: PurchaseItemCreateNestedManyWithoutProductInput
@@ -16405,6 +15883,7 @@ export namespace Prisma {
     salePrice: Decimal | DecimalJsLike | number | string
     quantity?: number
     minQuantity?: number
+    deletedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     purchaseItems?: PurchaseItemUncheckedCreateNestedManyWithoutProductInput
@@ -16419,6 +15898,7 @@ export namespace Prisma {
 
   export type ProductCreateManyCategoryInputEnvelope = {
     data: ProductCreateManyCategoryInput | ProductCreateManyCategoryInput[]
+    skipDuplicates?: boolean
   }
 
   export type ProductUpsertWithWhereUniqueWithoutCategoryInput = {
@@ -16449,6 +15929,7 @@ export namespace Prisma {
     salePrice?: DecimalFilter<"Product"> | Decimal | DecimalJsLike | number | string
     quantity?: IntFilter<"Product"> | number
     minQuantity?: IntFilter<"Product"> | number
+    deletedAt?: DateTimeNullableFilter<"Product"> | Date | string | null
     createdAt?: DateTimeFilter<"Product"> | Date | string
     updatedAt?: DateTimeFilter<"Product"> | Date | string
   }
@@ -16491,6 +15972,7 @@ export namespace Prisma {
 
   export type PurchaseItemCreateManyProductInputEnvelope = {
     data: PurchaseItemCreateManyProductInput | PurchaseItemCreateManyProductInput[]
+    skipDuplicates?: boolean
   }
 
   export type SaleItemCreateWithoutProductInput = {
@@ -16516,6 +15998,7 @@ export namespace Prisma {
 
   export type SaleItemCreateManyProductInputEnvelope = {
     data: SaleItemCreateManyProductInput | SaleItemCreateManyProductInput[]
+    skipDuplicates?: boolean
   }
 
   export type InventoryMovementCreateWithoutProductInput = {
@@ -16545,6 +16028,7 @@ export namespace Prisma {
 
   export type InventoryMovementCreateManyProductInputEnvelope = {
     data: InventoryMovementCreateManyProductInput | InventoryMovementCreateManyProductInput[]
+    skipDuplicates?: boolean
   }
 
   export type CategoryUpsertWithoutProductsInput = {
@@ -16717,6 +16201,7 @@ export namespace Prisma {
 
   export type PurchaseItemCreateManyPurchaseInputEnvelope = {
     data: PurchaseItemCreateManyPurchaseInput | PurchaseItemCreateManyPurchaseInput[]
+    skipDuplicates?: boolean
   }
 
   export type SupplierUpsertWithoutPurchasesInput = {
@@ -16832,6 +16317,7 @@ export namespace Prisma {
     salePrice: Decimal | DecimalJsLike | number | string
     quantity?: number
     minQuantity?: number
+    deletedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     category: CategoryCreateNestedOneWithoutProductsInput
@@ -16848,6 +16334,7 @@ export namespace Prisma {
     salePrice: Decimal | DecimalJsLike | number | string
     quantity?: number
     minQuantity?: number
+    deletedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     saleItems?: SaleItemUncheckedCreateNestedManyWithoutProductInput
@@ -16907,6 +16394,7 @@ export namespace Prisma {
     salePrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     quantity?: IntFieldUpdateOperationsInput | number
     minQuantity?: IntFieldUpdateOperationsInput | number
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     category?: CategoryUpdateOneRequiredWithoutProductsNestedInput
@@ -16923,6 +16411,7 @@ export namespace Prisma {
     salePrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     quantity?: IntFieldUpdateOperationsInput | number
     minQuantity?: IntFieldUpdateOperationsInput | number
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     saleItems?: SaleItemUncheckedUpdateManyWithoutProductNestedInput
@@ -16985,6 +16474,7 @@ export namespace Prisma {
 
   export type SaleItemCreateManySaleInputEnvelope = {
     data: SaleItemCreateManySaleInput | SaleItemCreateManySaleInput[]
+    skipDuplicates?: boolean
   }
 
   export type UserUpsertWithoutSalesInput = {
@@ -17073,6 +16563,7 @@ export namespace Prisma {
     salePrice: Decimal | DecimalJsLike | number | string
     quantity?: number
     minQuantity?: number
+    deletedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     category: CategoryCreateNestedOneWithoutProductsInput
@@ -17089,6 +16580,7 @@ export namespace Prisma {
     salePrice: Decimal | DecimalJsLike | number | string
     quantity?: number
     minQuantity?: number
+    deletedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     purchaseItems?: PurchaseItemUncheckedCreateNestedManyWithoutProductInput
@@ -17148,6 +16640,7 @@ export namespace Prisma {
     salePrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     quantity?: IntFieldUpdateOperationsInput | number
     minQuantity?: IntFieldUpdateOperationsInput | number
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     category?: CategoryUpdateOneRequiredWithoutProductsNestedInput
@@ -17164,6 +16657,7 @@ export namespace Prisma {
     salePrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     quantity?: IntFieldUpdateOperationsInput | number
     minQuantity?: IntFieldUpdateOperationsInput | number
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     purchaseItems?: PurchaseItemUncheckedUpdateManyWithoutProductNestedInput
@@ -17250,6 +16744,7 @@ export namespace Prisma {
     salePrice: Decimal | DecimalJsLike | number | string
     quantity?: number
     minQuantity?: number
+    deletedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     category: CategoryCreateNestedOneWithoutProductsInput
@@ -17266,6 +16761,7 @@ export namespace Prisma {
     salePrice: Decimal | DecimalJsLike | number | string
     quantity?: number
     minQuantity?: number
+    deletedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     purchaseItems?: PurchaseItemUncheckedCreateNestedManyWithoutProductInput
@@ -17329,6 +16825,7 @@ export namespace Prisma {
     salePrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     quantity?: IntFieldUpdateOperationsInput | number
     minQuantity?: IntFieldUpdateOperationsInput | number
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     category?: CategoryUpdateOneRequiredWithoutProductsNestedInput
@@ -17345,6 +16842,7 @@ export namespace Prisma {
     salePrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     quantity?: IntFieldUpdateOperationsInput | number
     minQuantity?: IntFieldUpdateOperationsInput | number
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     purchaseItems?: PurchaseItemUncheckedUpdateManyWithoutProductNestedInput
@@ -17616,6 +17114,7 @@ export namespace Prisma {
     salePrice: Decimal | DecimalJsLike | number | string
     quantity?: number
     minQuantity?: number
+    deletedAt?: Date | string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -17628,6 +17127,7 @@ export namespace Prisma {
     salePrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     quantity?: IntFieldUpdateOperationsInput | number
     minQuantity?: IntFieldUpdateOperationsInput | number
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     purchaseItems?: PurchaseItemUpdateManyWithoutProductNestedInput
@@ -17643,6 +17143,7 @@ export namespace Prisma {
     salePrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     quantity?: IntFieldUpdateOperationsInput | number
     minQuantity?: IntFieldUpdateOperationsInput | number
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     purchaseItems?: PurchaseItemUncheckedUpdateManyWithoutProductNestedInput
@@ -17658,6 +17159,7 @@ export namespace Prisma {
     salePrice?: DecimalFieldUpdateOperationsInput | Decimal | DecimalJsLike | number | string
     quantity?: IntFieldUpdateOperationsInput | number
     minQuantity?: IntFieldUpdateOperationsInput | number
+    deletedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

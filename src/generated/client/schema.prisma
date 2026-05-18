@@ -4,8 +4,8 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = "file:./dev.db"
+  provider = "mysql"
+  url      = env("DATABASE_URL")
 }
 
 model Role {
@@ -58,16 +58,17 @@ model Category {
 }
 
 model Product {
-  id            String   @id @default(cuid())
-  categoryId    String   @map("category_id")
+  id            String    @id @default(cuid())
+  categoryId    String    @map("category_id")
   name          String
-  barcode       String?  @unique
-  purchasePrice Decimal  @map("purchase_price")
-  salePrice     Decimal  @map("sale_price")
-  quantity      Int      @default(0)
-  minQuantity   Int      @default(0) @map("min_quantity")
-  createdAt     DateTime @default(now()) @map("created_at")
-  updatedAt     DateTime @updatedAt @map("updated_at")
+  barcode       String?   @unique
+  purchasePrice Decimal   @map("purchase_price")
+  salePrice     Decimal   @map("sale_price")
+  quantity      Int       @default(0)
+  minQuantity   Int       @default(0) @map("min_quantity")
+  deletedAt     DateTime? @map("deleted_at")
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
 
   category           Category            @relation(fields: [categoryId], references: [id])
   purchaseItems      PurchaseItem[]
